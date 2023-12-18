@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockchain-app
+  template:
+    metadata:
+      labels:
+        app: blockchain-app
+    spec:
+      containers:
+      - name: blockchain-app
+        image: yentestblockchain2:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
